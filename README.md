@@ -1,4 +1,4 @@
-# ruby-Thread#tid
+# Thread#tid
 
 man 2 gettid:
 
