@@ -8,7 +8,7 @@ In a multithreaded process, all threads have the same PID, but each one has a un
 
 ## Why?
 
-While Thread.current.object_id is great for internal thread identification, external tools (eg.: monitors) needs an OS identifier for them, for instance to get the resources stats of a specific thread.
+While `Thread.current.object_id` is great for internal thread identification, external tools (eg.: monitors) needs an OS identifier for them, for instance to get the resources stats of a specific thread.
 
 ## Compile
 ```bash
