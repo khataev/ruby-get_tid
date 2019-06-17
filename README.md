@@ -38,8 +38,7 @@ New thread TID: 29713
   PID  PGID   TID COMMAND         COMMAND
 29699 29699 29699 ruby            ruby test.rb
 29699 29699 29712 ruby-timer-thr  ruby test.rb
-29699 29699 29713 test.rb:6       ruby test.r
-Main proccess PID: 382
+29699 29699 29713 test.rb:6       ruby test.rb
 ```
 
 ## TODO
