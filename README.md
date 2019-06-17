@@ -1,4 +1,4 @@
-# ruby-get_tid
+# ruby-Thread#tid
 
 man 2 gettid:
 
@@ -21,27 +21,28 @@ make
 test.rb:
 ```ruby
 require './thread_info'
-include ThreadInfo
 
-puts "Main proccess PID: #{Process.pid}"
+puts "Main thread TID: #{Thread.current.tid}"
 Thread.new{
-    puts "Thread TID: #{get_tid}"
+    puts "New thread TID: #{Thread.current.tid}"
+    puts
     puts `ps axH -o pid,pgid,tid,comm,args -q #{$$}`
 }.join
 ```
 
 ```bash
 tom@vm1:~/ruby-get_tid# ./test.rb
-Main proccess PID: 382
-Thread TID: 411
+Main thread TID: 29699
+New thread TID: 29713
+
   PID  PGID   TID COMMAND         COMMAND
-  382   382   382 ruby            ruby ./test.rb
-  382   382   410 ruby-timer-thr  ruby ./test.rb
-  382   382   411 test.rb:7       ruby ./test.rb
+29699 29699 29699 ruby            ruby test.rb
+29699 29699 29712 ruby-timer-thr  ruby test.rb
+29699 29699 29713 test.rb:6       ruby test.r
+Main proccess PID: 382
 ```
 
 ## TODO
 
 - Portability: currently working only on Linux.
-- Move get_tid method to the Process class.
 - Turn into a gem.
